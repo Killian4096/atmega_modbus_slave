@@ -20,6 +20,9 @@ void atmega_modbus_slave_init(struct atmega_modbus_slave_t* atmega_modbus_slave_
     //Set Timeouts
     atmega_modbus_slave_tag->receive_timeout_cycles = ATMEGA_MODBUS_SLAVE_TIMEOUT_RECEIVE;
     atmega_modbus_slave_tag->transmit_timeout_cycles = ATMEGA_MODBUS_SLAVE_TIMEOUT_TRANSMIT;
+
+    //Init modbus tag
+    modbus_slave_init(&(atmega_modbus_slave_tag->modbus_slave_tag));
 }
 
 void atmega_modbus_slave_launcher(struct atmega_modbus_slave_t* atmega_modbus_slave_tag){
